@@ -28,6 +28,7 @@ public class HelloServlet extends HttpServlet {
         String className =  request.getParameter("name");
         PrintWriter out = response.getWriter();;
         out.println("<html><body>");
+        out.println("<a href='demo-servlet'>Go to demo page</a>");
         out.println("<h1>" + message + "</h1>");
         out.println("<h1>" + className + "</h1>");
         out.println("<h1> Cookie </h1>");
@@ -43,7 +44,27 @@ public class HelloServlet extends HttpServlet {
         }
         out.println("</body></html>");
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        String studentName = req.getParameter("studentName");
+//        String studentPhone = req.getParameter("studentPhone");
+//        String studentAddress = req.getParameter("studentAddress");
+//        resp.sendRedirect("test-servlet");
+//        PrintWriter out = resp.getWriter();;
+//        resp.setContentType("text/html");
+//        out.println("<html><body>");
+//        out.println("<a href='demo-servlet'>Go to demo page</a>");
+//        out.println("<h1>" + studentName + "</h1>");
+//        out.println("<h1>" + studentPhone + "</h1>");
+//        out.println("<h1>" + studentAddress + "</h1>");
+//        out.println("</body></html>");
+        req.setAttribute("testAttribute", "TestAttributeValue");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/test-servlet");
+        dispatcher.forward(req,resp);
+    }
+
     public void destroy() {
-        
+
     }
 }

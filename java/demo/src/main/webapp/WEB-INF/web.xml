@@ -16,4 +16,21 @@
         <url-pattern>/hello-servlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>demoServlet</servlet-name>
+        <servlet-class>com.example.demo.DemoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>demoServlet</servlet-name>
+        <url-pattern>/demo-servlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>testServlet</servlet-name>
+        <servlet-class>com.example.demo.TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testServlet</servlet-name>
+        <url-pattern>/test-servlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
