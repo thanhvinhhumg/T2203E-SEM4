@@ -1,22 +1,32 @@
 package com.example.demo;
 
+import com.example.demo.dao.CustomerDAO;
+import com.example.demo.dao.impl.CustomerDAOImpl;
+import com.example.demo.entity.CustomerEntity;
+
 import java.io.*;
 import java.util.Enumeration;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 
 
 public class HelloServlet extends HttpServlet {
     private String message;
+    private CustomerDAO customerDAO;
 
     public void init() {
         message = "Hello T2203E!";
+        customerDAO = new CustomerDAOImpl();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
+
+        CustomerEntity customerEntity = new CustomerEntity("T2203E FPT", 25, "B6");
+        customerDAO.createCustomer(customerEntity);
+        List<CustomerEntity> customerEntityList = customerDAO.getAllCustomer();
 
         // Hello
         String name = getInitParameter("name");
