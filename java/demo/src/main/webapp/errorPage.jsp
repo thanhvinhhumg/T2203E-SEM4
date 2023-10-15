@@ -13,6 +13,7 @@
 </head>
 <body>
 <h1> Co loi da xay ra </h1>
+<h1><%= exception.getMessage() %></h1>
 <a href="/"> quay lai trang chu</a>
 </body>
 </html>

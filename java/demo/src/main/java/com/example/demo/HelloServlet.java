@@ -25,8 +25,10 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/html");
 
         CustomerEntity customerEntity = new CustomerEntity("T2203E FPT", 25, "B6");
-        customerDAO.createCustomer(customerEntity);
-        List<CustomerEntity> customerEntityList = customerDAO.getAllCustomer();
+        request.setAttribute("customer", customerEntity);
+        request.getRequestDispatcher("/demoJsp.jsp").forward(request,response);
+//        customerDAO.createCustomer(customerEntity);
+//        List<CustomerEntity> customerEntityList = customerDAO.getAllCustomer();
 
         // Hello
         String name = getInitParameter("name");

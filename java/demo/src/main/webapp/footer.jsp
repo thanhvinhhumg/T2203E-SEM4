@@ -11,6 +11,11 @@
     <title>Title</title>
 </head>
 <body>
+<%
+    String name = request.getParameter("name");
+%>
 <h1>this is footer block</h1>
+<h1>Hello : <%= name %></h1>
+
 </body>
 </html>
