@@ -26,35 +26,37 @@ public class HelloServlet extends HttpServlet {
 
         CustomerEntity customerEntity = new CustomerEntity("T2203E FPT", 25, "B6");
         request.setAttribute("customer", customerEntity);
+        List<CustomerEntity> customerEntityList = customerDAO.getAllCustomer();
+        request.setAttribute("customers", customerEntityList);
         request.getRequestDispatcher("/demoJsp.jsp").forward(request,response);
 //        customerDAO.createCustomer(customerEntity);
 //        List<CustomerEntity> customerEntityList = customerDAO.getAllCustomer();
 
         // Hello
-        String name = getInitParameter("name");
-        if (name != null) {
-            message = name;
-        }
-        Cookie[] cookies = request.getCookies();
-        Enumeration<String> headers = request.getHeaderNames();
-        String className =  request.getParameter("name");
-        PrintWriter out = response.getWriter();;
-        out.println("<html><body>");
-        out.println("<a href='demo-servlet'>Go to demo page</a>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("<h1>" + className + "</h1>");
-        out.println("<h1> Cookie </h1>");
-        for(int i= 0; i< cookies.length; i++) {
-            Cookie c = cookies[i];
-            out.println("<p> cookie name: " + c.getName() + "  value :"+ c.getValue()+ "</p>");
-        }
-        out.println("<h1> Header name and value </h1>");
-        while (headers.hasMoreElements()) {
-            String headerName = headers.nextElement();
-            String value = request.getHeader(headerName);
-            out.println("<p> header name: " + headerName + " header value :"+ value + "</p>");
-        }
-        out.println("</body></html>");
+//        String name = getInitParameter("name");
+//        if (name != null) {
+//            message = name;
+//        }
+//        Cookie[] cookies = request.getCookies();
+//        Enumeration<String> headers = request.getHeaderNames();
+//        String className =  request.getParameter("name");
+//        PrintWriter out = response.getWriter();;
+//        out.println("<html><body>");
+//        out.println("<a href='demo-servlet'>Go to demo page</a>");
+//        out.println("<h1>" + message + "</h1>");
+//        out.println("<h1>" + className + "</h1>");
+//        out.println("<h1> Cookie </h1>");
+//        for(int i= 0; i< cookies.length; i++) {
+//            Cookie c = cookies[i];
+//            out.println("<p> cookie name: " + c.getName() + "  value :"+ c.getValue()+ "</p>");
+//        }
+//        out.println("<h1> Header name and value </h1>");
+//        while (headers.hasMoreElements()) {
+//            String headerName = headers.nextElement();
+//            String value = request.getHeader(headerName);
+//            out.println("<p> header name: " + headerName + " header value :"+ value + "</p>");
+//        }
+//        out.println("</body></html>");
     }
 
     @Override

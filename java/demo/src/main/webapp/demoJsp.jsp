@@ -1,4 +1,6 @@
-<%@ page import="java.io.Writer" %><%--
+<%@ page import="java.io.Writer" %>
+<%@ page import="com.example.demo.entity.CustomerEntity" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 10/12/2023
@@ -53,5 +55,26 @@
 <h3>name : <jsp:getProperty name="customer" property="name"/> </h3>
 <h3>age : <jsp:getProperty name="customer" property="age"/> </h3>
 <h3>address : <jsp:getProperty name="customer" property="address"/> </h3>
+
+<h1> Name: ${customer.name}</h1>
+<h1> Age: ${customer.age}</h1>
+<h1> Address: ${customer.address}</h1>
+<h1> Tong : ${ 4 + "6"}</h1>
+<h1> Tong : ${ 4 >= "4"}</h1>
+<h1> value param name: ${param.name}</h1>
+<h1> value param address: ${param.address}</h1>
+
+<jsp:useBean id="customers" scope="request" type="java.util.List"/>
+
+<%
+    List<CustomerEntity> customerEntityList = (List<CustomerEntity>) customers;
+    for (CustomerEntity cust : customerEntityList) {
+
+%>
+<h1> Name : <%= cust.getName() %>, Age: <%= cust.getAge() %>, Address: <%= cust.getAddress()%></h1>
+<%
+    }
+%>
+
 </body>
 </html>
