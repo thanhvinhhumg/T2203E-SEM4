@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.io.Writer" %>
 <%@ page import="com.example.demo.entity.CustomerEntity" %>
 <%@ page import="java.util.List" %><%--
@@ -75,6 +76,12 @@
 <%
     }
 %>
+<c:if test="${customers.size() > 0}" >
+    <c:forEach var="cust" items="${customers}" varStatus="loop" >
+        <h1>STT : ${loop.index + 1} Name : ${cust.name}, Age: ${cust.name}, Address: ${cust.name}</h1>
+    </c:forEach>
+</c:if>
+
 
 </body>
 </html>
