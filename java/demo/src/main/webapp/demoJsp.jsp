@@ -10,6 +10,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page errorPage="errorPage.jsp" %>
+<%@taglib prefix="custTag" uri="WEB-INF/myCustomTag.tld" %>
 <html>
 <head>
     <title>Demo</title>
@@ -82,6 +83,7 @@
     </c:forEach>
 </c:if>
 
-
+<custTag:myCustomTagHandlerList customers="${customers}"><h1>Table data</h1></custTag:myCustomTagHandlerList>
+<h1>End tag custom</h1>
 </body>
 </html>

@@ -26,6 +26,7 @@
     <input type="submit" value="Submit" />
 </form>
 <a href="hello-servlet?name=T2203E">Hello Servlet</a>
+<a href="customer-servlet">Customer Servlet</a>
 </body>
 <%--<jsp:include page="footer.jsp" >--%>
 <%--    <jsp:param name="name" value="T2203E"/>--%>

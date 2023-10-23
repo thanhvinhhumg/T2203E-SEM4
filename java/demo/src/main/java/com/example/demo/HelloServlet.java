@@ -5,6 +5,8 @@ import com.example.demo.dao.impl.CustomerDAOImpl;
 import com.example.demo.entity.CustomerEntity;
 
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -23,8 +25,14 @@ public class HelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
-
-        CustomerEntity customerEntity = new CustomerEntity("T2203E FPT", 25, "B6");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        CustomerEntity customerEntity = null;
+        try {
+            customerEntity = new CustomerEntity("T2203E FPT", 25, "B6",new java.sql.Date(dateFormat.parse("2023-10-30").getTime()));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        customerDAO.createCustomer(customerEntity);
         request.setAttribute("customer", customerEntity);
         List<CustomerEntity> customerEntityList = customerDAO.getAllCustomer();
         request.setAttribute("customers", customerEntityList);

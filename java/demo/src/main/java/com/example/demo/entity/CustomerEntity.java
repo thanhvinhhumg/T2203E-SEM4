@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
+
 
 @Entity
 @Table(name = "customer")
@@ -13,6 +15,10 @@ public class CustomerEntity implements Serializable {
     private String name;
     private Integer age;
     private String address;
+//    @Temporal(TemporalType.DATE)
+    private Date birthday;
+
+
 
     public CustomerEntity(Integer id, String name, Integer age, String address) {
         this.id = id;
@@ -24,10 +30,11 @@ public class CustomerEntity implements Serializable {
     public CustomerEntity() {
     }
 
-    public CustomerEntity(String name, Integer age, String address) {
+    public CustomerEntity(String name, Integer age, String address, Date date) {
         this.name = name;
         this.age = age;
         this.address = address;
+        this.birthday = date;
     }
 
     public Integer getId() {
@@ -60,5 +67,13 @@ public class CustomerEntity implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }
