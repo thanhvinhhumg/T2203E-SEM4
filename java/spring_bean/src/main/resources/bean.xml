@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="staff01" class="com.example.spring_bean.entity.Staff">
+        <property name="id" value="1"/>
+        <property name="name" value="staff 01"/>
+        <property name="address" value="Ha Noi"/>
+    </bean>
+
+    <bean id="staff02" class="com.example.spring_bean.entity.Staff">
+        <property name="id" value="02"/>
+        <property name="name" value="staff 02"/>
+        <property name="address" value="Ha Noi 02"/>
+    </bean>
+
+    <bean id="it" class="com.example.spring_bean.entity.Department">
+        <property name="id" value="01"/>
+        <property name="name" value="IT Department"/>
+    </bean>
+
+    <bean id="staff03" class="com.example.spring_bean.entity.Staff" autowire="constructor">
+        <property name="id" value="03"/>
+        <property name="name" value="staff 03"/>
+        <property name="address" value="Ha Noi 03"/>
+        <property name="department" ref="it" />
+    </bean>
+
+    <bean id="department" class="com.example.spring_bean.entity.Department">
+        <property name="id" value="01"/>
+        <property name="name" value="Department"/>
+    </bean>
+
+    <bean id="hr" class="com.example.spring_bean.entity.Department">
+        <property name="id" value="02"/>
+        <property name="name" value="HR Department"/>
+        <property name="staffs">
+            <list>
+                <ref bean="staff01"/>
+                <ref bean="staff02"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
