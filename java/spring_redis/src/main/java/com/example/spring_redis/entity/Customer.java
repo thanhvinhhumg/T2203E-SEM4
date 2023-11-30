@@ -1,21 +1,18 @@
-package com.example.spring_boot_api.entity;
+package com.example.spring_redis.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.EnableMBeanExport;
 
 import javax.persistence.*;
 
-@Data
 @Entity
 @Table(name = "customer")
-@NoArgsConstructor
-@AllArgsConstructor
-public class CustomerEntity {
+@Data
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Integer age;
     private String address;
+    private Integer age;
 }

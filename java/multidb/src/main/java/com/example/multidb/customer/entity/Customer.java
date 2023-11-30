@@ -1,21 +1,21 @@
-package com.example.spring_boot_api.entity;
+package com.example.multidb.customer.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Data
 @Entity
+@Data
 @Table(name = "customer")
-@NoArgsConstructor
-@AllArgsConstructor
-public class CustomerEntity {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Integer age;
     private String address;
+
+    @OneToMany(mappedBy = "customer")
+    List<Phone> phones;
 }
