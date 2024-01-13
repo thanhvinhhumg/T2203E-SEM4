@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:session_34/first_page.dart';
+import 'package:session_34/form_example.dart';
+import 'package:session_34/grid_view_example.dart';
 import 'package:session_34/list_student.dart';
+import 'package:session_34/stack_example.dart';
 import 'package:session_34/tabbar_view.dart';
 
 class MainPage extends StatefulWidget {
@@ -30,7 +34,8 @@ class _MainPageState extends State<MainPage> {
             children: [
               Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp4rN33PyWHKh1AnV91DHPLsB-t-FEAjS2eA&usqp=CAU"),
               TabBarExample(),
-              ListStudent(),
+              GridViewExample(),
+              FirstPage(),
             ],
           )
           ,
@@ -55,6 +60,10 @@ class _MainPageState extends State<MainPage> {
               SalomonBottomBarItem(
                   icon: Icon(Icons.settings),
                   title: Text("Setting")
+              ),
+              SalomonBottomBarItem(
+                  icon: Icon(Icons.settings),
+                  title: Text("stack")
               )
             ],
           ),
