@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:session_34/future_builder.dart';
 import 'package:session_34/main_page.dart';
+import 'package:session_34/reponsive_example.dart';
 import 'package:session_34/route.dart';
 
 void main() {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: routes,
-      home: MainPage(),
+      home: FutureBuilderExample(),
     );
   }
 }
